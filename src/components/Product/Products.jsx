@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-export function Product({ products }) {
+export function Products({ products }) {
   return (
     <>
       {products.map(product => (
