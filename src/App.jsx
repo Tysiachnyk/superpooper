@@ -38,9 +38,9 @@ function filterProductsByQuery(allProducts, query) {
 
   const normalizedQuery = query.toLowerCase();
 
-  return allProducts.filter(product =>
-    product.name.toLowerCase().includes(normalizedQuery),
-  );
+  return allProducts.filter(product => {
+    return product.name.toLowerCase().includes(normalizedQuery);
+  });
 }
 
 export const App = () => {
@@ -50,6 +50,12 @@ export const App = () => {
   let visibleProducts = filterProductsByOwnerID(products, selectedUserId);
 
   visibleProducts = filterProductsByQuery(visibleProducts, query);
+
+  const resetAllFilters = event => {
+    event.preventDefault();
+    setSelectedUserId(null);
+    setQuery('');
+  };
 
   return (
     <div className="section">
@@ -134,6 +140,7 @@ export const App = () => {
                 data-cy="ResetAllButton"
                 href="#/"
                 className="button is-link is-outlined is-fullwidth"
+                onClick={resetAllFilters}
               >
                 Reset all filters
               </a>
