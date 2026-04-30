@@ -49,6 +49,7 @@ export const App = () => {
               <Users
                 users={usersFromServer}
                 setSelectedUserId={setSelectedUserId}
+                selectedUserId={selectedUserId}
               />
               {/* <a data-cy="FilterAllUsers" href="#/">
                 All

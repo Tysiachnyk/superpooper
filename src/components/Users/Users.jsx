@@ -1,11 +1,19 @@
-export function Users({ users, setSelectedUserId }) {
+export function Users({ users, setSelectedUserId, selectedUserId }) {
   return (
     <>
+      <a
+        data-cy="FilterAllUsers"
+        href="#/"
+        className={selectedUserId === null ? 'is-active' : ''}
+        onClick={() => setSelectedUserId(null)}
+      >
+        All
+      </a>
       {users.map(user => (
         <a
           data-cy="FilterUser"
           href="#/"
-          className="is-active"
+          className={selectedUserId === user.id ? 'is-active' : ''}
           onClick={() => setSelectedUserId(user.id)}
         >
           {user.name}
