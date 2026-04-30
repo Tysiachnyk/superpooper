@@ -4,7 +4,7 @@ export function Products({ products }) {
   return (
     <>
       {products.map(product => (
-        <tr data-cy="Product">
+        <tr key={product.id} data-cy="Product">
           <td className="has-text-weight-bold" data-cy="ProductId">
             {product.id}
           </td>

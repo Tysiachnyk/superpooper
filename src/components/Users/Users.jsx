@@ -11,6 +11,7 @@ export function Users({ users, setSelectedUserId, selectedUserId }) {
       </a>
       {users.map(user => (
         <a
+          key={user.id}
           data-cy="FilterUser"
           href="#/"
           className={selectedUserId === user.id ? 'is-active' : ''}
